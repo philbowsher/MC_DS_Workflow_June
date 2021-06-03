@@ -1,0 +1,45 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r message=FALSE}
+library(tidyverse)
+library(plotly)
+```
+
+
+
+Data Import 
+
+```{r}
+records <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-05-25/records.csv')
+
+```
+Data Wrangle
+
+```{r}
+records1 <- records %>%
+ filter(!(track %in% "Luigi Raceway")) %>%
+ filter(date >= "2000-10-10" & 
+    date <= "2021-02-25") %>%
+ filter(record_duration >= 321L & record_duration <= 
+    3659L) 
+```
+
+
+```{r}
+
+p <- ggplot(data = records1, aes(x = track, group = player)) +
+            geom_bar(fill = "#0c4c8a") +
+  theme_minimal()
+
+p
+
+```
+
+
+```{r}
+ggplotly(p)
+```
+
