@@ -1,5 +1,5 @@
 ---
-title: "R Notebook DS Workflow June another change another"
+title: "R Notebook DS Workflow June another change another >2005"
 output: html_notebook
 ---
 
@@ -21,7 +21,7 @@ Data Wrangle
 ```{r}
 records1 <- records %>%
  filter(!(track %in% "Luigi Raceway")) %>%
- filter(date >= "2000-10-10" & 
+ filter(date >= "2005-10-10" & 
     date <= "2021-02-25") %>%
  filter(record_duration >= 321L & record_duration <= 
     3659L) 
